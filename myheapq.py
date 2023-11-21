@@ -125,7 +125,15 @@ From all times, sorting has always been a Great Art! :-)
 """
 
 __all__ = ['heappush', 'heappop', 'heapify', 'heapreplace', 'merge',
-           'nlargest', 'nsmallest', 'heappushpop', '_heapify_max', '_heappop_max', '_siftdown_max']
+           'nlargest', 'nsmallest', 'heappushpop', '_heapify_max', '_heappop_max', '_siftdown_max', 'heap_push', 'heap_pop']
+
+def heap_push(max_heap, item):
+    max_heap.append(item)
+    _siftdown_max(max_heap, 0, len(max_heap) - 1)
+
+
+def heap_pop(arr):
+    return _heappop_max(arr)  # Converts array to max_heap
 
 def heappush(heap, item):
     """Push item onto heap, maintaining the heap invariant."""
